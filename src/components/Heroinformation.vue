@@ -12,16 +12,17 @@
              :style="{color: colorDescription}"
              >{{description}}</span>
         </div>
-        <a 
-        :href="link" 
-        :style="{color: colorLink}"
-        class="hero-info-link"
-        >View collection</a>
+        <ui-button :color="colorLink || 'secondary'" type="link" to="/">
+            View collection
+        </ui-button> 
+
     </div>
 
 </template>
 
 <script setup>
+import uiButton from '@/components/UI/Button.vue'
+
 const props = defineProps ({
     title: {
         type: String,
@@ -45,7 +46,8 @@ const props = defineProps ({
     },
     colorLink: {
         type: String,
-        default: '#2A354B'
+        required: false,
+        default: '#2A254B'
     },
     background: {
         type: String,
@@ -68,30 +70,18 @@ const props = defineProps ({
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+        align-items: flex-start;
         &__title {
-            font-family: 'Clash Display', sans-serif;
+            font-family: var(--clash);
             font-weight: 400;
             line-height: 1.5;
             margin: 0 0 20px;
         }
         &__description {
-            color: #5B5676;
+            color: var(--lightGray);
             font-size: 18px;
         }
-        &-link {
-            color: #2a254b;
-            width: 170px;
-            height: 56px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: rgba(249, 249, 249, 0.15);
-            cursor: pointer;
-            &:hover {
-                background: rgba(249, 249, 249, 0.4)
-            }
-            
-        }
+
     }
 }
 </style>

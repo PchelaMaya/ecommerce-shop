@@ -1,9 +1,9 @@
 <template>
     <div class="product">
-        <a href="#">
+        <router-link to="/">
             <img :src="img" :alt="title" class="product-image">
-        </a>
-        <a href="#" class="product-name">{{title}}</a>
+        </router-link>
+        <router-link to="/" class="product-name">{{title}}</router-link>
         <span class="product-price">£{{price}}</span>
     </div>
 </template>
@@ -31,10 +31,10 @@ const props = defineProps ({
     }
     &-name {
         display: block;
-        color: #2A254B;
+        color: var(--primary);
         font-size: 20px;
         line-height: 28px;
-        font-family: 'Clash Display', sans-serif;
+        font-family: var(--clash);
         margin-bottom: 8px;
         text-decoration: none;
         &:hover {
@@ -44,7 +44,7 @@ const props = defineProps ({
     &-price {
         display: block;
         font-size: 18px;
-        color: #2A254B;
+        color: var(--primary);
     }
 }
 </style>

@@ -4,25 +4,26 @@
             <div class="header-top-search">
                 <img src="/svg/header-search.svg" alt="search">
             </div>
-            <a href="#" class="header-logo">Avion</a>
+            <router-link to="/" class="header-logo">Avion</router-link>
             <div class="header-top-right">
                 <div href="#" class="header-top-right__cart">
-                    <a href="#">
+                    <router-link to="/cart">
                         <img src="/svg/header-cart.svg" alt="cart">
-                    </a>
+                    </router-link>
                 </div>
                 <div href="#" class="header-top-right__user">
-                    <a href="#">
+                    <router-link to="/user">
                         <img src="/svg/header-user.svg" alt="user">
-                    </a>
+                    </router-link>
                 </div>
             </div>
         </div>
         <div class="header-menu">
-            <a class="haeder-menu__link"
-             href="element.path" 
+            <router-link
+             class="haeder-menu__link"
+             to="element.path" 
              v-for="(element, i) of menu"
-             :key="i">{{element.name}}</a>
+             :key="i">{{element.name}}</router-link>
         </div>
     </header>
 </template>
@@ -72,10 +73,10 @@ const menu = [
         }
     }
     &-logo {
-        color: #22202e;
+        color: var(--primary);
         font-size: 24px;
         text-decoration: none;
-        font-family: 'Clash Display', sans-serif;
+        font-family: var(--clash);
         text-align: center;
         &:hover {
             text-decoration: underline;
@@ -88,7 +89,7 @@ const menu = [
         align-items: center;
         * {
             margin: 0 22px;
-            color: #726e8d;
+            color: var(--gray);
             text-decoration: none;
             &:hover {
                 text-decoration: underline;

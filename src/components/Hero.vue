@@ -4,12 +4,13 @@
         title="Luxury homeware for people who love timeless design quality"
         description="Shop the new Spring 2022 collection today"
         link="#"
+        colorLink="lightgray"
         />
     </div>
 </template>
 
 <script setup>
-import Heroinformation from './Heroinformation.vue';
+import Heroinformation from '@/components/Heroinformation.vue';
 </script>
 
 <style lang="scss" scoped>
