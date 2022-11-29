@@ -1,7 +1,8 @@
 <template>
-    <div
+        <div
      class="hero-info" 
-     :style="{backgroundColor: background}">
+     :style="{backgroundColor: background}"
+     :class="{'hero-info--mobile-padding' : mobilePadding}">
     
         <div class="hero-info-text">
             <h2
@@ -12,11 +13,15 @@
              :style="{color: colorDescription}"
              >{{description}}</span>
         </div>
-        <ui-button :color="colorLink || 'secondary'" type="link" to="/">
-            View collection
+        <ui-button 
+        :mobileFullWidth="true"
+        :color="colorLink || 'secondary'" 
+        type="link" to="/">
+        View collection
         </ui-button> 
-
-    </div>
+    
+    
+</div>
 
 </template>
 
@@ -53,6 +58,10 @@ const props = defineProps ({
         type: String,
         default: '#fff'
     },
+    mobilePadding: {
+        type: Boolean,
+        default: false
+    }
 
 
 })
@@ -71,6 +80,21 @@ const props = defineProps ({
         flex-direction: column;
         justify-content: space-between;
         align-items: flex-start;
+        @media screen and (max-width: 767px) {
+            padding: 47px 0 32px 0;
+            min-height: 0;
+        }
+        &__image {
+            @media screen and (max-width: 767px) {
+                margin-top: 32px;
+            }
+        }
+        &-text {
+
+            @media screen and (max-width: 767px) {
+                margin-bottom: 32px;
+            }
+        }
         &__title {
             font-family: var(--clash);
             font-weight: 400;
@@ -78,8 +102,13 @@ const props = defineProps ({
             margin: 0 0 20px;
         }
         &__description {
-            color: var(--lightGray);
+            color: var(--lightgray);
             font-size: 18px;
+        }
+        &--mobile-padding {
+            @media screen and (max-width: 767px) {
+                padding: 36px 32px;
+            }
         }
 
     }

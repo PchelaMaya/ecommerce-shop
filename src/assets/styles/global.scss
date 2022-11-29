@@ -4,9 +4,11 @@
 :root {
     --satoshi: 'Satoshi', sans-serif;
     --clash: 'Clash Display', sans-serif;
-    --primary: #2A254B; 
-    --gray: #726e8d;
-    --lightGray: #5b5676;
+    --dark-primary: #2A254B; 
+    --primary: #4e4d93;
+    --lightgray: #f9f9f9;
+    --border-grey: #ebe8f4;
+    --border-dark: #cac6da;
 }
 
 
@@ -29,6 +31,7 @@ img {
 .container {
   max-width: 1440px;
   margin: auto;
+  padding: 0 24px;
 }
 
 .input-text {
@@ -36,4 +39,7 @@ img {
   padding: 0 32px;
   font-size: 16px;
   border: none;
+  @media screen and (max-width: 767px) {
+    padding: 0 10px;
+  }
 }

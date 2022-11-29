@@ -6,7 +6,8 @@
          {
             'btn--primary': color === 'primary',
             'btn--secondary': color === 'secondary',
-            'btn--lightgray': color === 'lightgray' 
+            'btn--lightgray': color === 'lightgray',
+            'btn--fullwidth': mobileFullWidth
         },
     ]"
     >
@@ -20,7 +21,8 @@
          {
             'btn--primary': color === 'primary',
             'btn--secondary': color === 'secondary',
-            'btn--lightgray': color === 'lightgray' 
+            'btn--lightgray': color === 'lightgray',
+            'btn--fullwidth': mobileFullWidth
         },
     ]"
     >
@@ -45,6 +47,10 @@ const props = defineProps({
     color: {
         type: String,
         default: 'primary',
+    },
+    mobileFullWidth: {
+        type: Boolean,
+        default: false
     }
 
 }
@@ -62,11 +68,16 @@ const props = defineProps({
     font-size: 16px;
     height: 56px;
     text-decoration: none;
+    white-space: nowrap;
+    @media screen and (max-width: 767px) {
+        padding: 0 15px;
+        font-size: 15px;
+    }
     &:hover {
         opacity: .8;
     }
     &--primary {
-        background: var(--primary);
+        background: var(--dark-primary);
         color: #fff;
     }
     &--secondary {
@@ -75,11 +86,17 @@ const props = defineProps({
     }
     &--lightgray {
         background: #F9F9F9;
-        color: var(--primary);
+        color: var(--dark-primary);
     }
     &--white {
         background: #fff;
-        color: var(--primary);
+        color: var(--dark-primary);
+    }
+    &--fullwidth {
+        @media screen and (max-width: 767px) {
+            width: 100%;
+            
+        }
     }
     
 }
