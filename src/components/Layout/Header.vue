@@ -18,6 +18,8 @@
                 <div href="#" class="header-top-right__cart">
                     <router-link to="/cart">
                         <img src="/svg/header-cart.svg" alt="cart">
+                        <span class="header-top-right__count" v-if="cartStore.cart.length">
+                            {{cartStore.cart.length}}</span>
                     </router-link>
                 </div>
                 <div href="#" class="header-top-right__user">
@@ -32,7 +34,8 @@
              class="haeder-menu__link"
              to="element.path" 
              v-for="(element, i) of menu"
-             :key="i">{{element.name}}</router-link>
+             :key="i">{{element.name}}
+            </router-link>
         </div>
         <div class="header-menu-mobile" v-if="isOpenedMobileMenu">
             <router-link
@@ -47,6 +50,8 @@
 </template>
 <script setup>
 import {ref} from 'vue'
+import {useCartStore} from "@/store/cart.js";
+
 
 const menu = [  
     {
@@ -66,6 +71,7 @@ const menu = [
     }
 ]
 const isOpenedMobileMenu = ref(false);
+const cartStore = useCartStore();
 </script>
 
 <style lang="scss" scoped>
@@ -113,7 +119,23 @@ const isOpenedMobileMenu = ref(false);
             }
         &__cart {
             margin-right: 16px;
-        }
+            position: relative;
+            }
+        &__count {
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            background: rgb(232, 1, 1);
+            border-radius: 50%;
+            color: #fff;
+            font-size: 10px;
+            text-decoration: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            left: -50%;
+            bottom: 0;
+            }
         }
     }
     &-logo {
@@ -122,7 +144,6 @@ const isOpenedMobileMenu = ref(false);
         text-decoration: none;
         font-family: var(--clash);
         text-align: center;
-
         &:hover {
             text-decoration: underline;
         }
